@@ -1,9 +1,6 @@
 services:
   - type: web
-    name: hospital-app
+    name: Hospital-Management-System-FullStack backend
     env: python
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn app:app
-    runtime: python
-    pythonVersion: 3.11.9
-    rootDir: Server

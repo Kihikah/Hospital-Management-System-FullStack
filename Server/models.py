@@ -1,8 +1,19 @@
 # Have the models here (PATIENTS, DOCTORS, DEPARTMENTS, APPOINTMENTS, MEDICAL_RECORDS)
-from app import db
 from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.orm import validates
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
+from werkzeug.security import generate_password_hash, check_password_hash
 
+db = SQLAlchemy()
+
+class SerializerMixin:
+    def to_dict(self):
+        return {
+            column.name: getattr(self, column.name)
+            for column in self.__table__.columns
+        }
+    
 class Patient(db.Model, SerializerMixin):
     __tablename__ = 'patients'
 
