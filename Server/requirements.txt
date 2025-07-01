@@ -17,3 +17,4 @@ MarkupSafe==2.1.5
 click==8.1.8
 typing_extensions==4.13.2
 setuptools==70.3.0
+
